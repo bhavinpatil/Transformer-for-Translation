@@ -92,6 +92,6 @@ class Encoder(nn.Module):
         super().__init__()
         self.layers = nn.Sequential(*[EncoderLayer(d_model, ffn_hidden, num_heads, drop_prob) for _ in range(num_layers)])
 
-    def forward(self.x):
+    def forward(self, x):
         x = self.layers(x)
         return x
