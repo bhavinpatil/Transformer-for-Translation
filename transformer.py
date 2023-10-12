@@ -6,6 +6,7 @@ import math
 
 def get_device():
     return torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    # return torch.device('cpu')
 
 def scaled_dot_product(q, k, v, mask=None):
     d_k = q.size()[-1]
@@ -35,12 +36,12 @@ class PositionalEncoding(nn.Module):
         return PE
 
 class SentenceEmbedding(nn.Module):
-    # "For a given sentence, create an embedding"
+    "For a given sentence, create an embedding"
     def __init__(self, max_sequence_length, d_model, language_to_index, START_TOKEN, END_TOKEN, PADDING_TOKEN):
         super().__init__()
         self.vocab_size = len(language_to_index)
         self.max_sequence_length = max_sequence_length
-        self.embedding = nn.Embedding(self.vocab_size, d_model)
+        self.embedding = nn.Embedding(self.max_sequence_length, d_model)
         self.language_to_index = language_to_index
         self.position_encoder = PositionalEncoding(d_model, max_sequence_length)
         self.dropout = nn.Dropout(p=0.1)
@@ -62,7 +63,7 @@ class SentenceEmbedding(nn.Module):
 
         tokenized = []
         for sentence_num in range(len(batch)):
-           tokenized.append( tokenize(batch[sentence_num], start_token, end_token) )
+            tokenized.append( tokenize(batch[sentence_num], start_token, end_token) )
         tokenized = torch.stack(tokenized)
         return tokenized.to(get_device())
     
@@ -112,7 +113,6 @@ class LayerNormalization(nn.Module):
         out = self.gamma * y + self.beta
         return out
 
-  
 class PositionwiseFeedForward(nn.Module):
     def __init__(self, d_model, hidden, drop_prob=0.1):
         super(PositionwiseFeedForward, self).__init__()
@@ -287,6 +287,7 @@ class Transformer(nn.Module):
         self.decoder = Decoder(d_model, ffn_hidden, num_heads, drop_prob, num_layers, max_sequence_length, kannada_to_index, START_TOKEN, END_TOKEN, PADDING_TOKEN)
         self.linear = nn.Linear(d_model, kn_vocab_size)
         self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+        # self.device = torch.device('cpu')
 
     def forward(self, 
                 x, 
