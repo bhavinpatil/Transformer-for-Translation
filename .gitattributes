@@ -5,3 +5,8 @@
 /datasets/*.en filter=lfs diff=lfs merge=lfs -text
 datasets/*.en filter=lfs diff=lfs merge=lfs -text
 datasets/*.kn filter=lfs diff=lfs merge=lfs -text
+*.hi filter=lfs diff=lfs merge=lfs -text
+datasets/hi-Kn/*.hi filter=lfs diff=lfs merge=lfs -text
+datasets/hi-Kn/*.kn filter=lfs diff=lfs merge=lfs -text
+datasets/En-Kn/*.kn filter=lfs diff=lfs merge=lfs -text
+datasets/En-Kn/*.en filter=lfs diff=lfs merge=lfs -text
