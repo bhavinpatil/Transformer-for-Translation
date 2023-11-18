@@ -10,3 +10,5 @@ datasets/hi-Kn/*.hi filter=lfs diff=lfs merge=lfs -text
 datasets/hi-Kn/*.kn filter=lfs diff=lfs merge=lfs -text
 datasets/En-Kn/*.kn filter=lfs diff=lfs merge=lfs -text
 datasets/En-Kn/*.en filter=lfs diff=lfs merge=lfs -text
+.en filter=lfs diff=lfs merge=lfs -text
+.kn filter=lfs diff=lfs merge=lfs -text
