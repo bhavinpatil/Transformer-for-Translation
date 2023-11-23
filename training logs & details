@@ -24,7 +24,7 @@ training & testing 4 - start time Day - 1 = 1600 to 2040 -- completed!!!
 =======================================================================
 
 Nov 21 1600
-training & testing 5 - start time Day - 1 = 1755 
+training & testing 5 - start time Day - 1 = 1755 -- interupted due to broken pipe from remote server
 		     - epochs = 100
 		     - num_heads = 8
 		     - num_layers = 2
@@ -32,3 +32,15 @@ training & testing 5 - start time Day - 1 = 1755
 
 1 epoch ~ 36-46 minutes
 100 epoch ~ 60 hours
+
+=======================================================================
+
+Nov 22 1940
+training & testing 6 - start time Day - 1 = 1945 -- interupted due to broken pipe from remote server
+		     - epochs = 50
+		     - num_heads = 8
+		     - num_layers = 1
+		     - dataset = 10,00,000 (8,18,801)
+
+1 epoch ~ 36-46 minutes
+50 epoch ~ 37 hours
